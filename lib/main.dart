@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:u_can_park/mapScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,11 +21,13 @@ class MyApp extends StatelessWidget {
         ),
         textTheme: const TextTheme(bodyText1: TextStyle(color: Colors.green))
       ),
-      home: MyHomePage(title: 'UCanPark'),
+      //home: MyHomePage(title: 'UCanPark'),
+      home: MapScreen(),
     );
   }
 }
 
+/*
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
 
@@ -56,3 +59,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+*/
