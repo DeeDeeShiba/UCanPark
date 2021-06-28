@@ -42,4 +42,5 @@
                   android:value="AIzaSyDAjXbAvs16Ntn9w6C6YpExKkX5dAF0KiE"/> <!--Google Cloud Platform API Key-->
     </application>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 </manifest>

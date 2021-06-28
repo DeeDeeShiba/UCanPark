@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:u_can_park/geoLocatorUsage.dart';
 import 'package:u_can_park/mapScreen.dart';
 
 void main() {
@@ -6,57 +8,26 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  final locatorUsage = GeoLocatorUsage();
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'UCanPark',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSwatch(
-          //Color scheme makes use of analogous colors.
-
-          primarySwatch: Colors.teal,
-        ).copyWith(
-            secondary: Colors.tealAccent
+    return FutureProvider(
+      create: (context)=> locatorUsage.getLocation(),
+      initialData: locatorUsage.getLocation(),
+      child: MaterialApp(
+        title: 'UCanPark',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSwatch(
+            //Color scheme makes use of analogous colors.
+            primarySwatch: Colors.teal,
+          ).copyWith(
+              secondary: Colors.tealAccent
+          ),
+          textTheme: const TextTheme(bodyText1: TextStyle(color: Colors.green))
         ),
-        textTheme: const TextTheme(bodyText1: TextStyle(color: Colors.green))
+        //home: MyHomePage(title: 'UCanPark'),
+       home: MapScreen(),
       ),
-      //home: MyHomePage(title: 'UCanPark'),
-      home: MapScreen(),
     );
-  }
+    }
 }
-
-/*
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-          ],
-        ),
-      ),
-       // This trailing comma makes auto-formatting nicer for build methods.
-    );
-  }
-}
-*/
