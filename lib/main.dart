@@ -14,6 +14,8 @@ class MyApp extends StatelessWidget {
     return FutureProvider(
       create: (context)=> locatorUsage.getLocation(),
       initialData: locatorUsage.getLocation(),
+
+
       child: MaterialApp(
         title: 'UCanPark',
         theme: ThemeData(
